@@ -17,12 +17,19 @@ Based on the provided hints, [Deep Deterministic Policy Gradient(DDPG)](https://
 
 ### Learning Algorithm
 
-DDPG is an actor-critic, model-free algorithm based on the deterministic policy gradient that can operate over continuous action spaces.
+[Deep Deterministic Policy Gradient (DDPG)](http://proceedings.mlr.press/v32/silver14.pdf) is model-free algorithm based on the deterministic policy gradient that can operate over continuous action spaces. DDPG can be thought of as being Deep Q-learning for continous action spaces. 
+DDPG is an algorithm which concurrently learns a Q-function and a policy. It uses off-policy data and the Bellman equation to learn the Q-function, and uses the Q-function to learn the policy. \
+Actor function specifies action 'a' given the current state of the environment 's'. \
+Critic value function specifies a signal to evaluate the actions made by the Actor.\
 
-In this implementation, there are two neural networks(local and target) each for Actor and Critic.
-Number of hidden layers: 2
-Hidden Layer 1: 256 units
-Hidden Layer 2: 128 units
+DDPG involves deterministic policies, which take a state and return a single action (no stochasticity).
+
+![](DDPG.JPG)
+
+In this implementation, there are two neural networks(local and target) each for Actor and Critic. \
+Number of hidden layers: 2 \
+Hidden Layer 1: 256 units \
+Hidden Layer 2: 128 units \
 Activation function(both layers): ReLU
 
 Ornstein-Uhlenbeck noise is injected in the action space as per the DDPG paper better Exploration.
